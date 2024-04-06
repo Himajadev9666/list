@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           body{
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhdbzfDkgSpGI_KwGGVuglWmDwEMDnSDCSvg&s);
+            
+           }
+      #Plus{
+        background-color: darkcyan; 
+        color: white; 
+        width: 80px; 
+        height: 35px; 
+      }  
+      #main{
+        width: 300px;
+        margin-top: 3%; 
+        padding: 5px;
+        border-radius: 5px;
+        margin-left: 25px;
+      }
+      ol{
+        margin-left:  450px;
+      }
+     
+      
+      .del{
+        background-color: red;
+        padding: 5px;
+        margin-left: 30px;}
+
+        .hima{
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          font-weight: bold;
+          text-align: center;
+        }
+     #List{
+      /* font-size: larger; */
+      margin-top: -150px;
+     }
+     .background{
+      border: 1px solid grey;
+      height: 400px;
+      width: 500px;
+      margin-left:  350px;
+      margin-top: 100px;
+      background-image: linear-gradient(to right, lightyellow,lightgreen,lightblue,lightcoral);
+     }
+        
+    </style>
+</head>
+<body>
+  <div class="background">
+    <h2 class="hima">TO-DO LIST</h2>
+    <form >
+        <input type="text" id="main">
+        <input type="button" value="Add" id="Plus"></div>
+    </form>
+    <ol id="List">
+    </ol>
+    <script>
+        var input = document.getElementById("main");
+        var btn = document.getElementById("Plus");
+        var ol = document.getElementById("List");
+        
+      
+
+
+        btn.onclick = hima;
+
+        function hima() {
+          
+            var inputValue = input.value;
+            input.value=" "
+            var li = document.createElement("li"); 
+            var span = document.createElement("span");
+            var deleteBtn = document.createElement("button");
+            var editBtn = document.createElement("button");    
+            span.innerHTML = inputValue;
+            span.style.fontSize="20px"
+            deleteBtn.innerHTML = "delete";
+            deleteBtn.className="del"
+            editBtn.innerHTML = "edit";
+            editBtn.style.marginLeft="30px"
+            editBtn.style.backgroundColor="lightgreen" 
+            editBtn.style.padding="5px"
+
+            li.appendChild(span);
+            li.appendChild(deleteBtn);
+            li.appendChild(editBtn);
+
+            ol.appendChild(li); 
+
+            deleteBtn.onclick = function() {
+                ol.removeChild(li);
+            };
+
+            editBtn.onclick = function() {
+                var newText = prompt("Enter new text:");
+                span.textContent = newText;
+            };
+            input.value=""
+        }
+       
+        
+    </script>
+</body>
+</html>
